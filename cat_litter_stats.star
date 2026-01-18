@@ -395,6 +395,7 @@ def get_cat_name(config,lastCat, cat_order, cat_alternative_names, show_alternat
     index = index_of_cat_order(cat_order, lastCat)
     cat_names_string = "cat_" + str(index) + "_alternative_names"
     cat_name_list = get_cat_name_list((config.get(cat_names_string,"")))
+    cat_name_list.append(lastCat)
 
     if (lastCat == "unknown_pet"):
         return LOCALIZED_STRINGS["missingno_" + str(show_missingno)][lang]
@@ -562,3 +563,4 @@ def fetch_public_image(url):
     if type(b) != "string":
         b = b()
     return b
+
