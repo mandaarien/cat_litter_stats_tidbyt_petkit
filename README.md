@@ -87,9 +87,11 @@ arguments: >-
 | **Cat Order** | Order of cats to assign pixel art. Same as in Petkit App E.g.: 'Champ, Lucy, ...' (List) | `cat_order` | `Champ, Lucy` |
 | **Alternate Pet Names** | Add alternate names for cats (e.g. nicknames). | `show_alternate_names` | `True`, `False` |
 | **Show Pixel Art for the Cats** | Show pixel art icons for the cats instead of pictures from Petkit. | `show_pixel_art` | `True`, `False` |
+| **Frist Cat Pet Names** | List of alternative Names for first cat as string/list. | `cat_0_alternate_names` |  `name1,name2,...` |
 | **Frist Cat Pixel Art** | Pixel art style for the first cat (Custom/Style 1/.../11) | `cat_0_art` |  `custom`,`0`,`1`...`11` |
-| **Second Cat Pixel Art** | Pixel art style for the second cat (Custom/Style 1/.../11) | `cat_1_art` |  `custom`,`0`,`1`...`11` |
 | **First Cat Custom Art** | Base64-encoded PNG (20×16 px), used when “custom” is selected | `cat_0_custom_art` |  `iVBORw0KGgoAAAANSUhEUgAA...` |
+| **Second Cat Pet Names** | List of alternative Names for second cat as string/list. | `cat_0_alternate_names` |  `name1,name2,...` |
+| **Second Cat Pixel Art** | Pixel art style for the second cat (Custom/Style 1/.../11) | `cat_1_art` |  `custom`,`0`,`1`...`11` |
 | **Second Cat Custom Art** | Base64-encoded PNG (20×16 px), used when “custom” is selected | `cat_1_custom_art` |  `iVBORw0KGgoAAAANSUhEUgAA...` |
 | **MissingNo** | Easter Egg from Pokemon when unknown last user. | `show_missingno` | `True`, `False` |
 
@@ -98,6 +100,10 @@ arguments: >-
 - Lists must be seperated by ","
 - Custom pixel art overrides built-in art when selected.
 
+Example for `key`:`cat_0_alternate_names` with `value`:`name1,name2`from HomeAssistant Helper Entity input for cat pet names (TydbitAssistant argument):
+```yaml
+cat_0_alternate_names={{states('input_text.spitznamen_champ') | string}}
+```
   
 ## 4. Setup Automation in HA to trigger Display (YAML)
 This exmaple automation wakes up and brightens the Tidbyt device up for 15 seconds, then runs the script and turns auto dim on and brightness down. 
