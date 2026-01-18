@@ -9,7 +9,7 @@ This Pixlet applet shows recent usage statistics from your automatic litterbox  
 - ⏲️ Choose Informations to Show
 - ⚠️ Alert when Litterbox is full or Litter is empty
 - 🖌️ Choose Cat Pixel Art according to the looks of Your Cats
-- 😺 Setup Profiles for up to 4 Cats by their names (from your Petkit Account)
+- 😺 Setup Profiles for all your Cats by their names (from your Petkit Account)
 - 😺 Setup different pet names for yout Cats to be shown 
 - 😺 Upload Custom Pixel Art for Your Cats
 
@@ -64,11 +64,7 @@ sequence:
       customcontent: cat_litter_stats/cat_litter_stats.star
       language: de
       arguments: >-
-        server_address_input=-->PUT YOUR HA SERVER HERE<--;server_api_key=-->PUT YOUR HA API KEY HERE<--;entity_toilet_name=katzenklo;show_alternate_names=True;cat_alternative_names={"Champ":
-        ["Champ", "Tschwibbie", "Boffski", "Biffler", "Niffie",
-        "Brizzler"],"Lucy": ["Lucy", "Mausi", "Biene", "Frau Maus",
-        "Frausi"]};show_pixel_art=True;cat_order=Champ,
-        Lucy;cat_0_art=0;cat_1_art=1
+        server_address_input=-->PUT YOUR HA SERVER HERE<--;server_api_key=-->PUT YOUR HA API KEY HERE<--;entity_toilet_name=katzenklo;show_alternate_names=True;cat_0_alternative_names=Tschwibbie,Boffski,Biffler,Niffie,Brizzler;cat_1_alternative_names=Mausi,Biene,Frau Maus,Frausi;show_pixel_art=True;cat_order=Champ,Lucy;cat_0_art=0;cat_1_art=1
     enabled: true
 alias: Katzenklo Benachrichtigung Stats
 description: ""
@@ -79,11 +75,7 @@ Most Important here ist the `arguments:` field. Setup the values as needed.
 
 ```yaml
 arguments: >-
-        server_address_input=-->PUT YOUR HA SERVER HERE<--;server_api_key=-->PUT YOUR HA API KEY HERE<--;entity_toilet_name=katzenklo;show_alternate_names=True;cat_alternative_names={"Champ":
-        ["Champ", "Tschwibbie", "Boffski", "Biffler", "Niffie",
-        "Brizzler"],"Lucy": ["Lucy", "Mausi", "Biene", "Frau Maus",
-        "Frausi"]};show_pixel_art=True;cat_order=Champ,
-        Lucy;cat_0_art=0;cat_1_art=1
+        server_address_input=-->PUT YOUR HA SERVER HERE<--;server_api_key=-->PUT YOUR HA API KEY HERE<--;entity_toilet_name=katzenklo;show_alternate_names=True;cat_0_alternative_names=Tschwibbie, Boffski,Biffler,Niffie,Brizzler;cat_1_alternative_names=Mausi,Biene,Frau Maus,Frausi;show_pixel_art=True;cat_order=Champ,Lucy;cat_0_art=0;cat_1_art=1
 ```
 ## Arguments
 | Field | Description | Key | Value |
@@ -92,25 +84,20 @@ arguments: >-
 | **HA Server Address** | Base URL of your Home Assistant instance | `server_address` | `http://homeassistant.local:8123` |
 | **API Token** | Long-Lived Home Assistant Access Token | `token` |  `eyJ0eXAiOiJKV1Qi...` |
 | **Entity Cat Litterbox HA** | Name of the cat litterbox device in Home Assistant (Petkit integration) | `entity_toilet_name` |  `katzenklo` |
-| **Cat Order** | Order of cats to assign pixel art. Same as in Petkit App E.g.: 'Champ, Lucy' (List) | `cat_order` | `Champ, Lucy` |
+| **Cat Order** | Order of cats to assign pixel art. Same as in Petkit App E.g.: 'Champ, Lucy, ...' (List) | `cat_order` | `Champ, Lucy` |
 | **Alternate Pet Names** | Add alternate names for cats (e.g. nicknames). | `show_alternate_names` | `True`, `False` |
-| **Alternate Cat Names List (optional)** | Alternate names for cats in JSON format.. | `cat_alternative_names` | `{\"Champ\": [\"Champ\", \"Tschwibbie\"], \"Lucy\": [\"Lucy\", \"Mausi\"] }` |
 | **Show Pixel Art for the Cats** | Show pixel art icons for the cats instead of pictures from Petkit. | `show_pixel_art` | `True`, `False` |
-
-| **First Cat Pixel Art** | Pixel art style for the first cat (Custom/Style 1/.../11) | `cat_0_art` |  `custom`,`0`,`1`...`11` |
+| **Frist Cat Pixel Art** | Pixel art style for the first cat (Custom/Style 1/.../11) | `cat_0_art` |  `custom`,`0`,`1`...`11` |
 | **Second Cat Pixel Art** | Pixel art style for the second cat (Custom/Style 1/.../11) | `cat_1_art` |  `custom`,`0`,`1`...`11` |
-| **Third Cat Pixel Art** | Pixel art style for the first cat (Custom/Style 1/.../11) | `cat_2_art` |  `custom`,`0`,`1`...`11` |
-| **Fourth Cat Pixel Art** | Pixel art style for the second cat (Custom/Style 1/.../11) | `cat_3_art` |  `custom`,`0`,`1`...`11` |
 | **First Cat Custom Art** | Base64-encoded PNG (20×16 px), used when “custom” is selected | `cat_0_custom_art` |  `iVBORw0KGgoAAAANSUhEUgAA...` |
 | **Second Cat Custom Art** | Base64-encoded PNG (20×16 px), used when “custom” is selected | `cat_1_custom_art` |  `iVBORw0KGgoAAAANSUhEUgAA...` |
-| **Third Cat Custom Art** | Base64-encoded PNG (20×16 px), used when “custom” is selected | `cat_2_custom_art` |  `iVBORw0KGgoAAAANSUhEUgAA...` |
-| **Fourth Cat Custom Art** | Base64-encoded PNG (20×16 px), used when “custom” is selected | `cat_3_custom_art` |  `iVBORw0KGgoAAAANSUhEUgAA...` |
 | **MissingNo** | Easter Egg from Pokemon when unknown last user. | `show_missingno` | `True`, `False` |
 
-### Notes
-- Numeric values are entered as text and parsed internally.
+⚠️ Important:
+- The Number of **`cat_`** arguments depends on the lenght of **`cat_order`** and must match (counting up from **0**)
+- Lists must be seperated by ","
 - Custom pixel art overrides built-in art when selected.
-- JSON fields must use valid JSON syntax.
+
   
 ## 4. Setup Automation in HA to trigger Display (YAML)
 This exmaple automation wakes up and brightens the Tidbyt device up for 15 seconds, then runs the script and turns auto dim on and brightness down. 
