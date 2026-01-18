@@ -17,8 +17,8 @@ load("encoding/json.star", "json")
 # Image Assets
 # ==========================
 UNKNOWN_PET_IMAGE = {
-    "true.png": """iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oBEQw4HdNNokgAAADTSURBVDjLrZMhEoMwEEU/DAIZGVnZI/Q2IHGtDK6OSOoqcwRugO0RkMhIZNxWdFIyHVKW0p3JZMXm529eFmDE9XwnZx0568jnsdqEIzh1mgCg7cV8ya1KfhZccpTLnHV2MaQQJIUgZx35PFabcQQHowAAh6NcrU23OB0Hi3GwqAqNXeEJcyhnayB0Y+AeLT4pbxbUjZmJni6vpDf/aTOkvNZyynFYFXo/iKnTJIWgcPfr2z9MtkxH6Do2eiwoqi7ZnUXfMBQJxXdNiqrLt7BuDMvpE+FVjZKnov7UAAAAAElFTkSuQmCC""",
-    "false.png": """iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oBEQ0QMMoNOqAAAAIASURBVDjLtZQ/bFJRFMZ/90GalloDNcFqZClatSqJsYnS8KhDy59oV5TVpCRtN51qB163bo5GY+LUaLo4aCxQh7YJPBc3ooOhS5n6SiFhQAzwHAR88MB00G96953vfDnnfPdc+McQ/QKbcA5QgHvAWaAEpIH1CHw+kaCixGMAk8paAlCB8z1y6kD0qxJ3/M5Ze2kMSkYx2Scj+2R+Tk29a4odAWHABkwAnwCLfmb0te/2Havsk9tFmARb0BsNaSCX8zSPKxFIRKASge/AMwBROB6uaZqjV8tW0wwkqWF/+2YZIKOqkgIxgIFqdbD2/sOyNZtFXL1Ssjqdx70EOyrUgXq91kGY9no5XSg4L6W2V6zZ7ARjY9XBhYVXDUFd72eKosRj014vAKFQGIQgsfURgNrhoaP8+Mmq0LQR4fEc2ZYWn99fXMoDJBNbNDtpm9PRcjAUbpNa3z/29maEpo2Ia5PFU6tP18MPHpZTyYSJ39cUk0nF4iiAdP3GN4vdXj7RxW5Z32rbCJ/fj23Ihq7rbKeSpnhGVTHeR8k4fCMBYC4QZGPI9mgTXmwIEZ8LBE1C3UVYAHZ2dr+4L7pvHeTzbUIruVSp3Kyk0xeG5+fLl6PR3fFxN/v7OVwuFxlV5SCf79gWw6b8+emfudt/psDsbIBeeT0fh+5V+hu6xf4LfgFqoLjQhS1EUAAAAABJRU5ErkJggg==""",
+    "True.png": """iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oBEQw4HdNNokgAAADTSURBVDjLrZMhEoMwEEU/DAIZGVnZI/Q2IHGtDK6OSOoqcwRugO0RkMhIZNxWdFIyHVKW0p3JZMXm529eFmDE9XwnZx0568jnsdqEIzh1mgCg7cV8ya1KfhZccpTLnHV2MaQQJIUgZx35PFabcQQHowAAh6NcrU23OB0Hi3GwqAqNXeEJcyhnayB0Y+AeLT4pbxbUjZmJni6vpDf/aTOkvNZyynFYFXo/iKnTJIWgcPfr2z9MtkxH6Do2eiwoqi7ZnUXfMBQJxXdNiqrLt7BuDMvpE+FVjZKnov7UAAAAAElFTkSuQmCC""",
+    "False.png": """iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAAAXNSR0IB2cksfwAAAARnQU1BAACxjwv8YQUAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAAAAAAAA+UO7fwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAAd0SU1FB+oBEQ0QMMoNOqAAAAIASURBVDjLtZQ/bFJRFMZ/90GalloDNcFqZClatSqJsYnS8KhDy59oV5TVpCRtN51qB163bo5GY+LUaLo4aCxQh7YJPBc3ooOhS5n6SiFhQAzwHAR88MB00G96953vfDnnfPdc+McQ/QKbcA5QgHvAWaAEpIH1CHw+kaCixGMAk8paAlCB8z1y6kD0qxJ3/M5Ze2kMSkYx2Scj+2R+Tk29a4odAWHABkwAnwCLfmb0te/2Havsk9tFmARb0BsNaSCX8zSPKxFIRKASge/AMwBROB6uaZqjV8tW0wwkqWF/+2YZIKOqkgIxgIFqdbD2/sOyNZtFXL1Ssjqdx70EOyrUgXq91kGY9no5XSg4L6W2V6zZ7ARjY9XBhYVXDUFd72eKosRj014vAKFQGIQgsfURgNrhoaP8+Mmq0LQR4fEc2ZYWn99fXMoDJBNbNDtpm9PRcjAUbpNa3z/29maEpo2Ia5PFU6tP18MPHpZTyYSJ39cUk0nF4iiAdP3GN4vdXj7RxW5Z32rbCJ/fj23Ihq7rbKeSpnhGVTHeR8k4fCMBYC4QZGPI9mgTXmwIEZ8LBE1C3UVYAHZ2dr+4L7pvHeTzbUIruVSp3Kyk0xeG5+fLl6PR3fFxN/v7OVwuFxlV5SCf79gWw6b8+emfudt/psDsbIBeeT0fh+5V+hu6xf4LfgFqoLjQhS1EUAAAAABJRU5ErkJggg==""",
 }
 
 ICON_PURAMAX = {
@@ -79,12 +79,12 @@ LOCALIZED_STRINGS = {
         "cn": "好的",
     },
     # UNKNOWN PET NAME
-    "missingno_false": {
+    "missingno_False": {
         "de": "Unbekannt",
         "en": "Unknown Pet",
         "cn": "未知宠物",
     },
-    "missingno_true": {
+    "missingno_True": {
         "de": "MissingNo",
         "en": "MissingNo",
         "cn": "MissingNo",
@@ -114,6 +114,77 @@ def get_schema():
         # ),
     ]
 
+    return schema.Schema(
+        version="1",
+        fields=[
+            schema.Dropdown(
+                id="lang",
+                name="Language",
+                desc="Display language",
+                icon="language",
+                default=language[0].value,
+                options=language,
+            ),
+            schema.Text(
+                id="server_address_input",
+                name="HA Server Address",
+                desc="Server Address or IP with Port.",
+                icon="server",
+                default="http://yourhomeassistant:8123",
+            ),
+            schema.Text(
+                id="server_api_key",
+                name="API Token",
+                desc="Input longlived Home Assistant API Token.",
+                icon="key",
+            ),
+            schema.Text(
+                id="entity_toilet_name",
+                name="Entity Cat Litter Box",
+                desc="Name of the Cat Litter Box Device given in Home Assistant via Petkit Integration. (E.g. xxxxxx.katzenklo_xxxxxx)",
+                icon="gear",
+                default="katzenklo",
+            ),
+            schema.Text(
+                id="cat_order",
+                name="Cat Order",
+                desc="Order of cats to assign pixel art. Same as in Petkit App E.g.: 'Champ, Lucy'",
+                icon="list",
+                default='Champ, Lucy',
+            ),
+            schema.Toggle(
+                id="show_alternate_names",
+                name="Alternate Cat Names",
+                desc="Add alternate names for cats (e.g. nicknames).",
+                icon="gear",
+                default=False,
+            ),
+            # Generated Cat Information Inputs in Scheme
+            schema.Generated(
+                id="cat_art_inputs",
+                source="cat_order",
+                handler=create_cat_settings,
+            ),
+            schema.Toggle(
+                id="show_pixel_art",
+                name="Show Pixel Art for the Cats",
+                desc="Show pixel art icons for the cats instead of pictures from Petkit.",
+                icon="brush",
+                default=True,
+            ),
+            # Easter Egg Toggle
+            schema.Toggle(
+                id="show_missingno",
+                name="MissingNo",
+                desc="Easter Egg from Pokemon when unknown last user.",
+                icon="gear",
+                default=True,
+            ),
+        ],
+    )
+
+
+def create_cat_settings(cat_order):
     # Cat Pixel Art Selection
     pixel_art = [
         schema.Option(
@@ -165,131 +236,38 @@ def get_schema():
             value="11",
         ),
     ]
+    cat_order_list = get_cat_order_list(cat_order)
+    generated_schema = []
+    for i in range(len(cat_order_list)):
+        generated_schema.append(
+            schema.Text(
+                id="cat_" + str(i) + "_alternative_names",
+                name="'" + cat_order_list[i] + "'" +" Pet Names (optional)",
+                desc="Pet names for '" +cat_order_list[i] + "'" +" as list. E.g. 'name1, name2'",
+                icon="list",
+                default="Tschwibbie, Boffski, Biffler, Niffie",
+            ),
+        )
+        generated_schema.append(
+            schema.Dropdown(
+                id="cat_" + str(i) + "_art",
+                name="'" + cat_order_list[i] + "'" +" Pixel Art",
+                desc="Choose from List",
+                icon="brush",
+                default=pixel_art[i].value,
+                options=pixel_art,
+            ),
+        )
+        generated_schema.append(
+            schema.Text(
+                id="cat_" + str(i) + "_custom_art",
+                name="'" + cat_order_list[i] + "'" +" Custom Art",
+                desc="Custom 20x16px Base64.decode() String of PNG",
+                icon="fileImage",
+            ),
+        )
 
-    return schema.Schema(
-        version="1",
-        fields=[
-            schema.Dropdown(
-                id="lang",
-                name="Language",
-                desc="Display language",
-                icon="language",
-                default=language[0].value,
-                options=language,
-            ),
-            schema.Text(
-                id="server_address_input",
-                name="HA Server Address",
-                desc="Server Address or IP with Port.",
-                icon="server",
-                default="http://yourhomeassistant:8123",
-            ),
-            schema.Text(
-                id="server_api_key",
-                name="API Token",
-                desc="Input longlived Home Assistant API Token.",
-                icon="key",
-            ),
-            schema.Text(
-                id="entity_toilet_name",
-                name="Entity Cat Litter Box",
-                desc="Name of the Cat Litter Box Device given in Home Assistant via Petkit Integration. (E.g. xxxxxx.katzenklo_xxxxxx)",
-                icon="gear",
-                default="katzenklo",
-            ),
-            schema.Text(
-                id="cat_order",
-                name="Cat Order",
-                desc="Order of cats to assign pixel art. Same as in Petkit App E.g.: 'Champ, Lucy'",
-                icon="list",
-                default='Champ, Lucy',
-            ),
-            schema.Toggle(
-                id="show_alternate_names",
-                name="Alternate Cat Names",
-                desc="Add alternate names for cats (e.g. nicknames).",
-                icon="gear",
-                default=False,
-            ),
-            schema.Text(
-                id="cat_alternative_names",
-                name="Alternate Cat Names (optional)",
-                desc="Alternate names for cats in JSON format. E.g. {\"Champ\": [\"Champ\", \"Tschwibbie\"], \"Lucy\": [\"Lucy\", \"Mausi\"] }",
-                icon="list",
-                default='{"Champ": ["Champ", "Tschwibbie", "Boffski", "Biffler", "Niffie"],"Lucy": ["Lucy", "Mausi", "Biene", "Frau Maus"]}',
-            ),
-            schema.Toggle(
-                id="show_pixel_art",
-                name="Show Pixel Art for the Cats",
-                desc="Show pixel art icons for the cats instead of pictures from Petkit.",
-                icon="brush",
-                default=True,
-            ),
-            schema.Dropdown(
-                id="cat_0_art",
-                name="First Cat Pixel Art",
-                desc="",
-                icon="brush",
-                default=pixel_art[1].value,
-                options=pixel_art,
-            ),
-            schema.Dropdown(
-                id="cat_1_art",
-                name="Second Cat Pixel Art",
-                desc="",
-                icon="brush",
-                default=pixel_art[2].value,
-                options=pixel_art,
-            ),
-            schema.Dropdown(
-                id="cat_2_art",
-                name="Third Cat Pixel Art",
-                desc="",
-                icon="brush",
-                default=pixel_art[3].value,
-                options=pixel_art,
-            ),
-            schema.Dropdown(
-                id="cat_3_art",
-                name="Fourth Cat Pixel Art",
-                desc="",
-                icon="brush",
-                default=pixel_art[4].value,
-                options=pixel_art,
-            ),
-            schema.Text(
-                id="cat_0_custom_art",
-                name="First Cat Custom Art",
-                desc="Custom 20x16px Base64.decode() String of PNG",
-                icon="fileImage",
-            ),
-            schema.Text(
-                id="cat_1_custom_art",
-                name="Second Cat Custom Art",
-                desc="Custom 20x16px Base64.decode() String of PNG",
-                icon="fileImage",
-            ),
-            schema.Text(
-                id="cat_2_custom_art",
-                name="Third Cat Custom Art",
-                desc="Custom 20x16px Base64.decode() String of PNG",
-                icon="fileImage",
-            ),
-            schema.Text(
-                id="cat_3_custom_art",
-                name="Fourth Cat Custom Art",
-                desc="Custom 20x16px Base64.decode() String of PNG",
-                icon="fileImage",
-            ),
-            schema.Toggle(
-                id="show_missingno",
-                name="MissingNo",
-                desc="Easter Egg from Pokemon when unknown last user.",
-                icon="gear",
-                default=True,
-            ),
-        ],
-    )
+    return generated_schema
 
 
 def main(config):
@@ -306,19 +284,8 @@ def main(config):
     show_alternate_names = config.get("show_alternate_names", True)
     cat_alternative_names = config.get("cat_alternative_names", {"Champ": [
                                        "Champ", "Tschwibbie", "Boffski", "Biffler", "Niffie"], "Lucy": ["Lucy", "Mausi", "Biene", "Frau Maus"]})
-
     # Pixel Art Inputs
     show_pixel_art = config.get("show_pixel_art", True)
-    cat_0_art = config.get("cat_0_art", "0")
-    cat_1_art = config.get("cat_1_art", "0")
-    cat_2_art = config.get("cat_2_art", "0")
-    cat_3_art = config.get("cat_3_art", "0")
-
-    # Custom Pixel Art Base64 Strings Inputs
-    cat_0_custom_art = config.get("cat_0_custom_art", CUSTOM_DEFAULT_IMAGE)
-    cat_1_custom_art = config.get("cat_0_custom_art", CUSTOM_DEFAULT_IMAGE)
-    cat_2_custom_art = config.get("cat_0_custom_art", CUSTOM_DEFAULT_IMAGE)
-    cat_3_custom_art = config.get("cat_0_custom_art", CUSTOM_DEFAULT_IMAGE)
 
     # Easter Egg
     show_missingno = config.get("show_missingno", True)
@@ -340,8 +307,8 @@ def main(config):
                                         main_align="space_around",
                                         cross_align="start",
                                         children=[
-                                            render_cat_image(server_address, token, entity_toilet_name, show_pixel_art, cat_order, get_last_use(
-                                                entity_toilet_name, server_address, token)[0], cat_0_art, cat_1_art, cat_2_art, cat_3_art, cat_0_custom_art, cat_1_custom_art, cat_2_custom_art, cat_3_custom_art, show_missingno),
+                                            render_cat_image( config, server_address, token, entity_toilet_name, show_pixel_art, cat_order, get_last_use(
+                                                entity_toilet_name, server_address, token)[0], show_missingno),
                                             render.Column(
                                                 main_align="space_around",
                                                 cross_align="start",
@@ -350,7 +317,7 @@ def main(config):
                                                             align="start",
                                                             width=35,
                                                             child=render.Text(
-                                                                get_cat_name(get_last_use(entity_toilet_name, server_address, token)[0], cat_alternative_names, show_alternate_names, show_missingno, lang), font="tb-8"),
+                                                                get_cat_name(config, get_last_use(entity_toilet_name, server_address, token)[0], cat_order, cat_alternative_names, show_alternate_names, show_missingno, lang), font="tb-8"),
                                                     ),
                                                     render.Row(
                                                         children=[
@@ -415,18 +382,33 @@ def get_cat_order_list(cat_order):
     return cat_order_list
 
 
-def get_cat_name(lastCat, cat_alternative_names, show_alternate_names, show_missingno, lang):
+def get_cat_name_list(cat_alternative_names):
+    cat_name_list = []
+    string_raw = cat_alternative_names
+    if string_raw:
+        for block in string_raw.split(","):
+            cat_name_list.append(block.strip())
+    return cat_name_list
+
+def get_cat_name(config,lastCat, cat_order, cat_alternative_names, show_alternate_names, show_missingno, lang):
+    cat_order_list = get_cat_order_list(cat_order)
+    index = index_of_cat_order(cat_order, lastCat)
+    cat_names_string = "cat_" + str(index) + "_alternative_names"
+    cat_name_list = get_cat_name_list((config.get(cat_names_string,"")))
+
     if (lastCat == "unknown_pet"):
-        return LOCALIZED_STRINGS[str("missingno_" + show_missingno)][lang]
+        return LOCALIZED_STRINGS["missingno_" + str(show_missingno)][lang]
     if not show_alternate_names:
         return lastCat
-    if cat_alternative_names == "":
+    if (config.get(cat_names_string),"") == "":
         return lastCat
-    length_names_cat_list = len(json.decode(cat_alternative_names)[lastCat])
+
+    length_names_cat_list = len(cat_name_list)
     if length_names_cat_list == 0:
         return lastCat
     random_index = random.number(0, length_names_cat_list - 1)
-    return json.decode(cat_alternative_names)[lastCat][random_index]
+    return cat_name_list[random_index]
+
 
 # ======================================
 # Image / Pixel Art Helper
@@ -438,35 +420,23 @@ def index_of_cat_order(cat_order, name):
     return -1
 
 
-def get_cat_pixel_art_cat(cat_order, name, cat_0_art, cat_1_art, cat_2_art, cat_3_art, cat_0_custom_art, cat_1_custom_art, cat_2_custom_art, cat_3_custom_art):
+def get_cat_pixel_art_cat(config, cat_order, name):
     index = index_of_cat_order(cat_order, name)
-    if index == 0:
-        if cat_0_art == "custom":
-            return cat_0_custom_art
-        return CAT_ART["%d.png" % int(cat_0_art)]
-    if index == 1:
-        if cat_1_art == "custom":
-            return cat_1_custom_art
-        return CAT_ART["%d.png" % int(cat_1_art)]
-    if index == 2:
-        if cat_2_art == "custom":
-            return cat_2_custom_art
-        return CAT_ART["%d.png" % int(cat_2_art)]
-    if index == 3:
-        if cat_3_art == "custom":
-            return cat_3_custom_art
-        return CAT_ART["%d.png" % int(cat_3_art)]
-    return CAT_ART["0.png"]  # Default
+    cat_art_string = "cat_" + str(index) + "_art"
+    cat_custom_art_string = "cat_" + str(index) + "_custom_art"
+    if config.get(cat_art_string, "0") == "custom":
+        return config.get(cat_custom_art_string, "")
+    return CAT_ART["%d.png" % int(config.get(cat_art_string, CUSTOM_DEFAULT_IMAGE))]
 
 
-def render_cat_image(server_address, token, entity_toilet_name, show_pixel_art, cat_order, name, cat_0_art, cat_1_art, cat_2_art, cat_3_art, cat_0_custom_art, cat_1_custom_art, cat_2_custom_art, cat_3_custom_art, show_missingno):
+def render_cat_image(config, server_address, token, entity_toilet_name, show_pixel_art, cat_order, name, show_missingno):
     if name == "unknown_pet":
         return render.Image(src=base64.decode(UNKNOWN_PET_IMAGE[str(show_missingno) + ".png"]))
     if show_pixel_art == False:
         return render.Image(fetch_public_image(get_entity_picture_url(
             server_address, token, get_last_use(entity_toilet_name, server_address, token)[2])), width=16, height=16)
     img_bytes = get_cat_pixel_art_cat(
-        cat_order, name, cat_0_art, cat_1_art, cat_2_art, cat_3_art, cat_0_custom_art, cat_1_custom_art, cat_2_custom_art, cat_3_custom_art)
+        config, cat_order, name)
     if img_bytes == "":
         return render.Image(src=base64.decode(CUSTOM_DEFAULT_IMAGE))
     return render.Image(src=base64.decode(img_bytes))
