@@ -1,4 +1,4 @@
-# 🐈 PETKIT Cat Litter Box Stats for Tidbyt / [Tronbyt Server](https://github.com/tronbyt/
+# 🐈 PETKIT Cat Litter Box Stats for Tidbyt / [Tronbyt Server](https://github.com/tronbyt/)
 ⚠️ Recommended way: Use the script/automation via HomeAssistant with [TidbytAssistant](https://github.com/savdagod/TidbytAssistant) for automations.
 
 😺 Needs this awesome HACS Integration to work: [home-assistant-petkit](https://github.com/RobertD502/home-assistant-petkit) 
@@ -29,6 +29,7 @@ Install HACS on your HA Instance. Install Petkit HACS. Follow Setup Instructions
 ## Home Assistant as Host 
 ## 2. Setup [TidbytAssistant](https://github.com/savdagod/TidbytAssistant) from HACS
 --> Easy way to send custom .star to yout Tidbyt Device locally. Install TidbytAssistan HACS. Follow Setup Instructions there. 
+
 ## 3. Setup Script in HA to run cat_food_stats.star (YAML)
 Exampe Scipt
 ```yaml
@@ -69,7 +70,7 @@ sequence:
 alias: Katzenklo Benachrichtigung Stats
 description: ""
 ```
-Most Important here ist the `arguments:` field. Setup the values as needed. 
+Most Important here ist the `arguments:` field.
 
 ⚠️ Important: when using the GUI of Tidbyt Push Script setup, put all values in one line!
 
@@ -84,7 +85,7 @@ arguments: >-
 | **HA Server Address** | Base URL of your Home Assistant instance | `server_address` | `http://homeassistant.local:8123` |
 | **API Token** | Long-Lived Home Assistant Access Token | `token` |  `eyJ0eXAiOiJKV1Qi...` |
 | **Entity Cat Litterbox HA** | Name of the cat litterbox device in Home Assistant (Petkit integration) | `entity_toilet_name` |  `katzenklo` |
-| **Cat Order** | Order of cats to assign pixel art. Same as in Petkit App E.g.: 'Champ, Lucy, ...' (List) | `cat_order` | `Champ, Lucy` |
+| **Cat Order** | Order of cats to assign alternative names and art. Same as in Petkit App E.g.: 'Champ, Lucy, ...' (List) | `cat_order` | `Champ, Lucy` |
 | **Alternate Pet Names** | Add alternate names for cats (e.g. nicknames). | `show_alternate_names` | `True`, `False` |
 | **Show Pixel Art for the Cats** | Show pixel art icons for the cats instead of pictures from Petkit. | `show_pixel_art` | `True`, `False` |
 | **Frist Cat Pet Names** | List of alternative Names for first cat as string/list. | `cat_0_alternate_names` |  `name1,name2,...` |
@@ -97,7 +98,7 @@ arguments: >-
 
 ⚠️ Important:
 - The Number of **`cat_`** arguments depends on the lenght of **`cat_order`** and must match (counting up from **0**)
-- Lists must be seperated by ","
+- Lists Items must be seperated by ","
 - Custom pixel art overrides built-in art when selected.
 
 Example for `key`:`cat_0_alternate_names` with `value`:`name1,name2`from HomeAssistant Helper Entity input for cat pet names (TydbitAssistant argument):
@@ -160,4 +161,4 @@ mode: single
 ```
 
 ## Tronbyt as Host
-In Tronbyt you should be able to use the Configuration Scheme given in the app for setup of all arguments!
+In Tronbyt you should be able to use the Configuration Scheme given in the app to setup of all arguments!
