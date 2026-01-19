@@ -44,16 +44,7 @@ sequence:
       customcontent: cat_litter_stats.star
       language: de
       arguments: >-
-        wastebinState={{states('binary_sensor.katzenklo_wastebin') |
-        string}};lastCat={{states('sensor.katzenklo_last_used_by') |
-        string}};lang=de;lastChamp={{states('sensor.champ_latest_weight') |
-        string}};lang=de;lastLucy={{states('sensor.lucy_latest_weight') |
-        string}};litterLevel={{states('sensor.katzenklo_litter_level') |
-        string}};cats=["Champ", "Lucy"];names_cat_one=["Champ", "Tschwibbie",
-        "Boffski", "Biffler", "Niffie"];names_cat_two=["Lucy", "Mausi", "Biene",
-        "Frau Maus"];cat_alternative_names={"Champ": ["Champ", "Tschwibbie",
-        "Boffski", "Biffler", "Niffie"],"Lucy": ["Lucy", "Mausi", "Biene", "Frau
-        Maus"]}
+        server_address_input=-->PUT YOUR HA SERVER HERE<--;server_api_key=-->PUT YOUR HA API KEY HERE<--;entity_toilet_name=katzenklo;show_alternate_names=True;cat_0_alternative_names=Tschwibbie, Boffski,Biffler,Niffie,Brizzler;cat_1_alternative_names=Mausi,Biene,Frau Maus,Frausi;show_pixel_art=True;cat_order=Champ,Lucy;cat_0_art=0;cat_1_art=1
     enabled: false
   - action: tidbytassistant.push
     metadata: {}
