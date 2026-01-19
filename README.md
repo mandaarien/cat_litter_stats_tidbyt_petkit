@@ -41,19 +41,7 @@ sequence:
       publishtype: foreground
       devicename:
         - tidbyt
-      customcontent: cat_litter_stats.star
-      language: de
-      arguments: >-
-        server_address_input=-->PUT YOUR HA SERVER HERE<--;server_api_key=-->PUT YOUR HA API KEY HERE<--;entity_toilet_name=katzenklo;show_alternate_names=True;cat_0_alternative_names=Tschwibbie, Boffski,Biffler,Niffie,Brizzler;cat_1_alternative_names=Mausi,Biene,Frau Maus,Frausi;show_pixel_art=True;cat_order=Champ,Lucy;cat_0_art=0;cat_1_art=1
-    enabled: false
-  - action: tidbytassistant.push
-    metadata: {}
-    data:
-      contenttype: custom
-      publishtype: foreground
-      devicename:
-        - tidbyt
-      customcontent: cat_litter_stats/cat_litter_stats.star
+      customcontent: cat_litter_stats/cat_litter_stats.star     <----- /tidbyt/...
       language: de
       arguments: >-
         server_address_input=-->PUT YOUR HA SERVER HERE<--;server_api_key=-->PUT YOUR HA API KEY HERE<--;entity_toilet_name=katzenklo;show_alternate_names=True;cat_0_alternative_names=Tschwibbie,Boffski,Biffler,Niffie,Brizzler;cat_1_alternative_names=Mausi,Biene,Frau Maus,Frausi;show_pixel_art=True;cat_order=Champ,Lucy;cat_0_art=0;cat_1_art=1
@@ -63,7 +51,7 @@ description: ""
 ```
 Most Important here ist the `arguments:` field.
 
-⚠️ Important: when using the GUI of Tidbyt Push Script setup, put all values in one line!
+⚠️ Important: when using the GUI of Tidbyt Push Script setup, put all `key=value;` pairs in one line!
 
 ```yaml
 arguments: >-
@@ -101,11 +89,11 @@ cat_0_alternate_names={{states('input_text.spitznamen_champ') | string}}
 This exmaple automation triggers, when the number of total uses changes. It wakes up and brightens the Tidbyt device up for 15 seconds, then runs the script and turns auto dim on and brightness down afterwards.
 ```YAML
 alias: Cat Litterbox Stats
-description: "Trigger Cat Litterbox Stats on Tidbyt Screen."
+description: "Trigger Cat Litterbox Stats on Tidbyt Screen after usage."
 triggers:
   - trigger: state
     entity_id:
-      - sensor.katzenklo_total_use
+      - sensor.xxxxxxx_total_use     <----- Put name of Litterbox Device here (e.g. katzenklo)
     for:
       hours: 0
       minutes: 0
