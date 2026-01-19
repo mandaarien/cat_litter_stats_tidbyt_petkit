@@ -1,7 +1,7 @@
 # 🐈 PETKIT Cat Litter Box Stats for Tidbyt / [Tronbyt Server](https://github.com/tronbyt/)
-⚠️ Recommended way: Use the script/automation via HomeAssistant with [TidbytAssistant](https://github.com/savdagod/TidbytAssistant) for automations.
+⚠️ Recommended to use the script/automation via HomeAssistant with [TidbytAssistant](https://github.com/savdagod/TidbytAssistant) for automations and display notifications.
 
-😺 Needs this awesome HACS Integration to work: [home-assistant-petkit](https://github.com/RobertD502/home-assistant-petkit) 
+😺 Needs this Petkit HACS Integration to work: [home-assistant-petkit](https://github.com/RobertD502/home-assistant-petkit) 
 
 This Pixlet applet shows recent usage statistics from your automatic litterbox  (e.g. PuraMax 1/2):
 
@@ -98,10 +98,10 @@ cat_0_alternate_names={{states('input_text.spitznamen_champ') | string}}
 ```
   
 ## 4. Setup Automation in HA to trigger Display (YAML)
-This exmaple automation wakes up and brightens the Tidbyt device up for 15 seconds, then runs the script and turns auto dim on and brightness down. 
+This exmaple automation triggers, when the number of total uses changes. It wakes up and brightens the Tidbyt device up for 15 seconds, then runs the script and turns auto dim on and brightness down afterwards.
 ```YAML
-alias: Catfood Stats
-description: "Trigger Cat Food Stats on Tidbyt Screen."
+alias: Cat Litterbox Stats
+description: "Trigger Cat Litterbox Stats on Tidbyt Screen."
 triggers:
   - trigger: state
     entity_id:
